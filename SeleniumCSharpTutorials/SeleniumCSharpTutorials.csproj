@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="BaseClass\BaseTest.cs" />
     <Compile Include="GithubTestClass.cs" />
+    <Compile Include="OrderSkipAttribute.cs" />
     <Compile Include="ParallelTesting.cs" />
     <Compile Include="SeleniumCSharpTutorial04.cs" />
     <Compile Include="TestClass.cs" />
