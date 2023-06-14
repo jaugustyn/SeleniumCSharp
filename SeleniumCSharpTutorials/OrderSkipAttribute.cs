@@ -15,7 +15,7 @@ namespace SeleniumCSharpTutorials
     class OrderSkipAttribute
     {
 
-        [Test, Order(2), Category("OrderSkipAttribute")]
+        [Test, Order(1), Category("OrderSkipAttribute")]
         public void TestMethod1()
         {
             //Assert.Ignore("Defect 12345");
@@ -26,42 +26,28 @@ namespace SeleniumCSharpTutorials
             driver.Close();
         }
 
-        [Test, Order(1), Category("OrderSkipAttribute")]
+        [Test, Order(0), Category("OrderSkipAttribute")]
         public void TestMethod2()
         {
-            try
-            {
-                IWebDriver driver = new FirefoxDriver();
-                driver.Url = "https://www.facebook.com/";
-                IWebElement emailTextField = driver.FindElement(By.XPath(".//*[@id='email']"));
-                emailTextField.SendKeys("Selenium C#");
-                driver.Close();
-            }
-            catch(InvalidOperationException ex)
-            {
-                Console.WriteLine("Pliki binarne Firefox'a nie zostały znaleziony. Sprawdź czy przeglądarka jest zainstalowana" + ex);
-            }
+            // Upewnij się że przeglądarka Firefox jest zainstalowana na Twoi urządzeniu
+            IWebDriver driver = new FirefoxDriver();
+            driver.Url = "https://www.facebook.com/";
+            IWebElement emailTextField = driver.FindElement(By.XPath(".//*[@id='email']"));
+            emailTextField.SendKeys("Selenium C#");
+            driver.Close();
         }
 
-        [Test, Order(0), Category("OrderSkipAttribute")]
+        // Internet explorer nie jest już wspieraną przeglądarką
+        /*
+        [Test, Order(2), Category("OrderSkipAttribute")]
         public void TestMethod3()
         {
-            try
-            {
-                IWebDriver driver = new InternetExplorerDriver();
-                driver.Url = "https://www.facebook.com/";
-                IWebElement emailTextField = driver.FindElement(By.XPath(".//*[@id='email']"));
-                emailTextField.SendKeys("Selenium C#");
-                driver.Close();
-            }
-            catch (InvalidOperationException ex)
-            {
-                Console.WriteLine("Pliki binarne InternetExplorera nie zostały znaleziony. Sprawdź czy przeglądarka jest zainstalowana:" + ex);
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine("InternetExplorer nie jest wspieraną przeglądarką przez Facebooka" + ex);
-            }
+            IWebDriver driver = new InternetExplorerDriver();
+            driver.Url = "https://www.facebook.com/";
+            IWebElement emailTextField = driver.FindElement(By.XPath(".//*[@id='email']"));
+            emailTextField.SendKeys("Selenium C#");
+            driver.Close();
         }
+        */
     }
 }
