@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace SeleniumCSharpTutorials
 {
+    [TestFixture]
     class GithubTestClass
     {
         public IWebDriver driver;
@@ -41,7 +42,7 @@ namespace SeleniumCSharpTutorials
         {
             IWebElement loginField = driver.FindElement(By.XPath(".//*[@id='login_field']"));
             loginField.SendKeys("SeleniumCsharpLOGIN");
-            Thread.Sleep(5000);
+            Thread.Sleep(2000);
         }
     }
 }
