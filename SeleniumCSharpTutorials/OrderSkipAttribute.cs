@@ -29,7 +29,7 @@ namespace SeleniumCSharpTutorials
         [Test, Order(0), Category("OrderSkipAttribute")]
         public void TestMethod2()
         {
-            // Upewnij się że przeglądarka Firefox jest zainstalowana na Twoi urządzeniu
+            // Make sure Firefox is installed on your device
             IWebDriver driver = new FirefoxDriver();
             driver.Url = "https://www.facebook.com/";
             IWebElement emailTextField = driver.FindElement(By.XPath(".//*[@id='email']"));
@@ -37,7 +37,7 @@ namespace SeleniumCSharpTutorials
             driver.Close();
         }
 
-        // Internet explorer nie jest już wspieraną przeglądarką
+        // Internet explorer is not supported anymore
         /*
         [Test, Order(2), Category("OrderSkipAttribute")]
         public void TestMethod3()
